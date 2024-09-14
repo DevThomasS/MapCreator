@@ -1,9 +1,74 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:local="clr-namespace:MapCreator"
         x:Class="MapCreator.MainWindow"
-        Title="MapCreator">
-    Welcome to Avalonia!
+        Width="1400" Height="800"
+        Title="Map Creator">
+    <Grid>
+        <!-- Define rows and columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/> <!-- Navigation Bar -->
+            <RowDefinition Height="*"/>  <!-- Content Area -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/> <!-- 80% of the width -->
+            <ColumnDefinition Width="1*"/> <!-- 20% of the width -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation Bar -->
+        <StackPanel Orientation="Horizontal" Background="#333" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Button Name="Geo" Content="Geographical Map" Background="#444" Foreground="White" BorderBrush="Transparent" Margin="5" Click="OnGeoClick"/>
+            <Button Name="Pol" Content="Political Map" Background="#444" Foreground="White" BorderBrush="Transparent" Margin="5" Click="OnPolClick"/>
+        </StackPanel>
+
+        <!-- Canvas Area -->
+        <Canvas Name="MapCanvas" Background="rgb(150, 150, 150)" Grid.Row="1" Grid.Column="0" />
+
+        <!-- Menu Panel -->
+        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Name="MenuPanel" Grid.Row="1" Grid.Column="1" Background="rgb(100, 100, 100)">
+              <TextBlock Name="MapTypeText" Text="Current Map: Geography" FontWeight="Bold" Margin="10"/>
+              
+              <!-- Traversable Land Category -->
+              <TextBlock Text="Traversable Land" FontWeight="Bold" Margin="10"/>
+              <ListBox Name="TraversableLandListBox" Margin="10">
+                  <ListBoxItem Content="Wilderness"/>
+                  <ListBoxItem Content="Desert"/>
+                  <ListBoxItem Content="Hills"/>
+                  <ListBoxItem Content="Light Forest"/>
+                  <ListBoxItem Content="Low Fertility"/>
+                  <ListBoxItem Content="Medium Fertility"/>
+                  <ListBoxItem Content="High Fertility"/>
+              </ListBox>
+
+              <!-- Rivers Category -->
+              <TextBlock Text="Rivers" FontWeight="Bold" Margin="10"/>
+              <ListBox Name="RiversListBox" Margin="10">
+                  <ListBoxItem Content="Source"/>
+                  <ListBoxItem Content="Crossing"/>
+                  <ListBoxItem Content="Navigable"/>
+                  <ListBoxItem Content="Delta"/>
+              </ListBox>
+              
+              <!-- Impassable Land Category -->
+              <TextBlock Text="Impassable Land" FontWeight="Bold" Margin="10"/>
+              <ListBox Name="ImpassableLandListBox" Margin="10">
+                  <ListBoxItem Content="Mountains"/>
+                  <ListBoxItem Content="Dense Forest"/>
+                  <ListBoxItem Content="Extreme Desert"/>
+              </ListBox>
+
+              <!-- Sea Category -->
+              <TextBlock Text="Sea" FontWeight="Bold" Margin="10"/>
+              <ListBox Name="SeaListBox" Margin="10">
+                  <ListBoxItem Content="Deep Ocean"/>
+                  <ListBoxItem Content="Shallow Ocean"/>
+                  <ListBoxItem Content="Deep Sea"/>
+                  <ListBoxItem Content="Shallow Sea"/>
+                  <ListBoxItem Content="Deep Lake"/>
+                  <ListBoxItem Content="Shallow Lake"/>
+              </ListBox>
+          </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Window>
