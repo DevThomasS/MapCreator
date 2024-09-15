@@ -8,7 +8,8 @@
         <!-- Define rows and columns -->
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/> <!-- Navigation Bar -->
-            <RowDefinition Height="*"/>  <!-- Content Area -->
+            <RowDefinition Height="Auto"/> <!-- Map Selection Bar -->
+            <RowDefinition Height="*"/>  <!-- Whole Screen -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/> <!-- 80% of the width -->
@@ -16,22 +17,26 @@
         </Grid.ColumnDefinitions>
 
         <!-- Navigation Bar -->
-        <StackPanel Orientation="Horizontal" Background="#333" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <Button Name="Geo" Content="Geographical Map" Background="#444" Foreground="White" BorderBrush="Transparent" Margin="5" Click="OnGeoClick"/>
-            <Button Name="Pol" Content="Political Map" Background="#444" Foreground="White" BorderBrush="Transparent" Margin="5" Click="OnPolClick"/>
+        <StackPanel Orientation="Horizontal" Background="rgb(60, 60, 60)" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Button Name="Geo" Content="Geographical Map" Background="rgb(90, 90, 90)" BorderBrush="Transparent" Margin="5" Click="OnGeoClick"/>
+            <Button Name="Pol" Content="Political Map" Background="rgb(90, 90, 90)" BorderBrush="Transparent" Margin="5" Click="OnPolClick"/>
         </StackPanel>
 
         <!-- Canvas Area -->
-        <Canvas Name="MapCanvas" Background="rgb(150, 150, 150)" Grid.Row="1" Grid.Column="0" />
+        <Canvas Name="MapCanvas" Background="rgb(150, 150, 150)" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" />
 
-        <!-- Menu Panel -->
-        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <StackPanel Name="MenuPanel" Grid.Row="1" Grid.Column="1" Background="rgb(100, 100, 100)">
-              <TextBlock Name="MapTypeText" Text="Current Map: Geography" FontWeight="Bold" Margin="10"/>
-              
+        <!-- Selection Bar -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="rgb(100, 100, 100)">
+            <TextBlock Name="MapTypeText" Text="Current Map: Geographical" FontWeight="Bold" Margin="10"/>
+            <Separator Margin="10" Background="rgb(150, 150, 150)" Height="3"/>
+        </StackPanel>
+
+        <!-- Geographical Menu -->
+        <ScrollViewer Name="Geographical" Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" IsVisible="False">
+            <StackPanel Background="rgb(100, 100, 100)">
               <!-- Traversable Land Category -->
               <TextBlock Text="Traversable Land" FontWeight="Bold" Margin="10"/>
-              <ListBox Name="TraversableLandListBox" Margin="10">
+              <ListBox Name="TraversableLandListBox" Margin="10" Background="rgb(80, 80, 80)">
                   <ListBoxItem Content="Wilderness"/>
                   <ListBoxItem Content="Desert"/>
                   <ListBoxItem Content="Hills"/>
@@ -43,7 +48,7 @@
 
               <!-- Rivers Category -->
               <TextBlock Text="Rivers" FontWeight="Bold" Margin="10"/>
-              <ListBox Name="RiversListBox" Margin="10">
+              <ListBox Name="RiversListBox" Margin="10" Background="rgb(80, 80, 80)">
                   <ListBoxItem Content="Source"/>
                   <ListBoxItem Content="Crossing"/>
                   <ListBoxItem Content="Navigable"/>
@@ -52,7 +57,7 @@
               
               <!-- Impassable Land Category -->
               <TextBlock Text="Impassable Land" FontWeight="Bold" Margin="10"/>
-              <ListBox Name="ImpassableLandListBox" Margin="10">
+              <ListBox Name="ImpassableLandListBox" Margin="10" Background="rgb(80, 80, 80)">
                   <ListBoxItem Content="Mountains"/>
                   <ListBoxItem Content="Dense Forest"/>
                   <ListBoxItem Content="Extreme Desert"/>
@@ -60,7 +65,7 @@
 
               <!-- Sea Category -->
               <TextBlock Text="Sea" FontWeight="Bold" Margin="10"/>
-              <ListBox Name="SeaListBox" Margin="10">
+              <ListBox Name="SeaListBox" Margin="10" Background="rgb(80, 80, 80)">
                   <ListBoxItem Content="Deep Ocean"/>
                   <ListBoxItem Content="Shallow Ocean"/>
                   <ListBoxItem Content="Deep Sea"/>
@@ -69,6 +74,93 @@
                   <ListBoxItem Content="Shallow Lake"/>
               </ListBox>
           </StackPanel>
+        </ScrollViewer>
+        
+        <!-- Political Menu -->
+        <ScrollViewer Name="Political" Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" IsVisible="False">
+            <StackPanel Background="rgb(100, 100, 100)">
+                
+                <!-- Create New Region Section -->
+                <Button Content="Create New Region" Margin="10" Click="OnCreateNewRegionClick"/>
+
+                <!-- Fields for New Region -->
+                <StackPanel Name="NewRegionFields" IsVisible="False" Margin="10">
+                    <TextBlock Text="Region Name" FontWeight="Bold" Margin="5"/>
+                    <TextBox Name="RegionName" Margin="5" Watermark="Enter Region Name"/>
+
+                    <TextBlock Text="Capital Name" FontWeight="Bold" Margin="5"/>
+                    <TextBox Name="CapitalName" Margin="5" Watermark="Enter Capital Name"/>
+
+                    <Expander VerticalAlignment="Top">
+                        <Expander.Header> Religion </Expander.Header>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ElementName=latin, Path=Value, StringFormat='Latin Christianity:  {0}%'}"/>
+                            <Slider x:Name="latin" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=orthodox, Path=Value, StringFormat='Orthodox Christianity:  {0}%'}"/>
+                            <Slider x:Name="orthodox" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=eastern, Path=Value, StringFormat='Eastern Christianity:  {0}%'}"/>
+                            <Slider x:Name="eastern" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=sunni, Path=Value, StringFormat='Sunni Islam:  {0}%'}"/>
+                            <Slider x:Name="sunni" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=shia, Path=Value, StringFormat='Shia Islam:  {0}%'}"/>
+                            <Slider x:Name="shia" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=khawarij, Path=Value, StringFormat='Khawarij Islam:  {0}%'}"/>
+                            <Slider x:Name="khawarij" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=judaism, Path=Value, StringFormat='Judaism:  {0}%'}"/>
+                            <Slider x:Name="judaism" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=zoroastrianism, Path=Value, StringFormat='Zoroastrianism:  {0}%'}"/>
+                            <Slider x:Name="zoroastrianism" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=hinduism, Path=Value, StringFormat='Hinduism:  {0}%'}"/>
+                            <Slider x:Name="hinduism" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=buddhism, Path=Value, StringFormat='Buddhism:  {0}%'}"/>
+                            <Slider x:Name="buddhism" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=paganism, Path=Value, StringFormat='Paganism:  {0}%'}"/>
+                            <Slider x:Name="paganism" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <!-- Continue adding religions throughout the map -->
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander VerticalAlignment="Top">
+                        <Expander.Header> Culture </Expander.Header>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ElementName=briton, Path=Value, StringFormat='Briton:  {0}%'}"/>
+                            <Slider x:Name="briton" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=angloSaxon, Path=Value, StringFormat='Anglo-Saxon:  {0}%'}"/>
+                            <Slider x:Name="angloSaxon" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <TextBlock Text="{Binding ElementName=norse, Path=Value, StringFormat='Norse:  {0}%'}"/>
+                            <Slider x:Name="norse" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"/>
+
+                            <!-- Continue adding cultures throughout the map -->
+                        </StackPanel>
+                    </Expander>
+
+                    <TextBlock Text="Keywords" FontWeight="Bold" Margin="5"/>
+                    <ListBox Name="KeywordsListBox" SelectionMode="Multiple" Margin="10">
+                    <!-- TODO: Low Priority. Find a way to not require user to use ctrl/shift to multi-select. -->
+                        <ListBoxItem Content="Keyword 1"/>
+                        <ListBoxItem Content="Keyword 2"/>
+                        <ListBoxItem Content="Keyword 3"/>
+                        <ListBoxItem Content="Keyword 4"/>
+                        <ListBoxItem Content="Keyword 5"/>
+                        <!-- Continue adding religions throughout the map -->
+                    </ListBox>
+
+                    <Button Name="SaveRegionButton" Content="Save Region" Click="OnSaveRegionClick" />
+                </StackPanel>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Window>
