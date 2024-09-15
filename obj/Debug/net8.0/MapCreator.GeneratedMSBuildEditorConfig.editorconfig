@@ -19,8 +19,14 @@ build_property.ProjectDir = C:\Users\thoma\Desktop\projects\MapCreator\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/thoma/Desktop/projects/MapCreator/App.axaml]
+[C:/Users/thoma/Desktop/projects/MapCreator/Views/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/thoma/Desktop/projects/MapCreator/MainWindow.axaml]
+[C:/Users/thoma/Desktop/projects/MapCreator/Views/GeographicalMenu.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/thoma/Desktop/projects/MapCreator/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/thoma/Desktop/projects/MapCreator/Views/PoliticalMenu.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

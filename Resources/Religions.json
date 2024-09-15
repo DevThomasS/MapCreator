@@ -1,0 +1,13 @@
+[
+  { "Name": "latin", "Description": "Latin Christianity" },
+  { "Name": "orthodox", "Description": "Orthodox Christianity" },
+  { "Name": "eastern", "Description": "Eastern Christianity" },
+  { "Name": "sunni", "Description": "Sunni Islam" },
+  { "Name": "shia", "Description": "Shia Islam" },
+  { "Name": "khawarij", "Description": "Khawarij Islam" },
+  { "Name": "judaism", "Description": "Judaism" },
+  { "Name": "zoroastrianism", "Description": "Zoroastrianism" },
+  { "Name": "hinduism", "Description": "Hinduism" },
+  { "Name": "buddhism", "Description": "Buddhism" },
+  { "Name": "paganism", "Description": "Paganism" }
+]

@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MapCreator.Views.GeographicalMenu">
+    <ScrollViewer Name="GeographicalMenuContent" VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="rgb(100, 100, 100)">
+            <!-- Traversable Land Category -->
+            <TextBlock Text="Traversable Land" FontWeight="Bold" Margin="10"/>
+            <ListBox Name="TraversableLandListBox" Margin="10" Background="rgb(80, 80, 80)">
+                <ListBoxItem Content="Wilderness"/>
+                <ListBoxItem Content="Desert"/>
+                <ListBoxItem Content="Hills"/>
+                <ListBoxItem Content="Light Forest"/>
+                <ListBoxItem Content="Low Fertility"/>
+                <ListBoxItem Content="Medium Fertility"/>
+                <ListBoxItem Content="High Fertility"/>
+            </ListBox>
+
+            <!-- Rivers Category -->
+            <TextBlock Text="Rivers" FontWeight="Bold" Margin="10"/>
+            <ListBox Name="RiversListBox" Margin="10" Background="rgb(80, 80, 80)">
+                <ListBoxItem Content="Source"/>
+                <ListBoxItem Content="Crossing"/>
+                <ListBoxItem Content="Navigable"/>
+                <ListBoxItem Content="Delta"/>
+            </ListBox>
+            
+            <!-- Impassable Land Category -->
+            <TextBlock Text="Impassable Land" FontWeight="Bold" Margin="10"/>
+            <ListBox Name="ImpassableLandListBox" Margin="10" Background="rgb(80, 80, 80)">
+                <ListBoxItem Content="Mountains"/>
+                <ListBoxItem Content="Dense Forest"/>
+                <ListBoxItem Content="Extreme Desert"/>
+            </ListBox>
+
+            <!-- Sea Category -->
+            <TextBlock Text="Sea" FontWeight="Bold" Margin="10"/>
+            <ListBox Name="SeaListBox" Margin="10" Background="rgb(80, 80, 80)">
+                <ListBoxItem Content="Deep Ocean"/>
+                <ListBoxItem Content="Shallow Ocean"/>
+                <ListBoxItem Content="Deep Sea"/>
+                <ListBoxItem Content="Shallow Sea"/>
+                <ListBoxItem Content="Deep Lake"/>
+                <ListBoxItem Content="Shallow Lake"/>
+            </ListBox>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

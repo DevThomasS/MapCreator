@@ -66,3 +66,4 @@ C:\Users\thoma\Desktop\projects\MapCreator\obj\Debug\net8.0\refint\Avalonia\MapC
 C:\Users\thoma\Desktop\projects\MapCreator\obj\Debug\net8.0\MapCreator.csproj.Up2Date
 C:\Users\thoma\Desktop\projects\MapCreator\obj\Debug\net8.0\MapCreator.genruntimeconfig.cache
 C:\Users\thoma\Desktop\projects\MapCreator\obj\Debug\net8.0\ref\MapCreator.dll
+C:\Users\thoma\Desktop\projects\MapCreator\bin\Debug\net8.0\Newtonsoft.Json.dll

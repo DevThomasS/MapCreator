@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MapCreator.Views.PoliticalMenu">
+    <UserControl.Styles>
+        <Style Selector="Expander">
+            <Setter Property="Background" Value="rgb(60, 60, 60)"/>
+        </Style>
+        <!-- TODO: Low Priority. Expander Header background should be 60,60,60. -->
+    </UserControl.Styles>
+    <ScrollViewer Name="PoliticalMenuContent" VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="rgb(100, 100, 100)">
+            <!-- Create New Region Section -->
+            <Button Content="Create New Region" Margin="10" Click="OnCreateNewRegionClick"/>
+
+            <!-- Fields for New Region -->
+            <StackPanel Name="NewRegionFields" IsVisible="False" Margin="10">
+                <TextBlock Text="Region Name" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="RegionName" Margin="5" Watermark="Enter Region Name"/>
+
+                <TextBlock Text="Capital Name" FontWeight="Bold" Margin="5"/>
+                <TextBox Name="CapitalName" Margin="5" Watermark="Enter Capital Name"/>
+
+                <Expander Header="Religion" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5">
+                    <StackPanel Name="Religions"/>
+                </Expander>
+
+                <Expander Header="Culture" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5">
+                    <StackPanel Name="Cultures"/>
+                </Expander>
+
+                <Expander Header="Keywords" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5">
+                    <!-- TODO: Low Priority. Find a way to not require user to use ctrl/shift to multi-select. -->
+                    <ListBox Name="Keywords" SelectionMode="Multiple"/>
+                </Expander>
+
+                <Button Name="SaveRegionButton" Content="Save Region" Click="OnSaveRegionClick" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

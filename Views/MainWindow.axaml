@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MapCreator"
+        xmlns:views="clr-namespace:MapCreator.Views"
+        x:Class="MapCreator.MainWindow"
+        Width="1400" Height="800"
+        Title="Map Creator">
+    <Grid>
+        <!-- Define rows and columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/> <!-- Navigation Bar -->
+            <RowDefinition Height="Auto"/> <!-- Map Selection Bar -->
+            <RowDefinition Height="*"/>  <!-- Whole Screen -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/> <!-- 80% of the width -->
+            <ColumnDefinition Width="1*"/> <!-- 20% of the width -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation Bar -->
+        <StackPanel Orientation="Horizontal" Background="rgb(60, 60, 60)" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Button Name="Geo" Content="Geographical Map" Background="rgb(90, 90, 90)" BorderBrush="Transparent" Margin="5" Click="OnGeoClick"/>
+            <Button Name="Pol" Content="Political Map" Background="rgb(90, 90, 90)" BorderBrush="Transparent" Margin="5" Click="OnPolClick"/>
+        </StackPanel>
+
+        <!-- Canvas Area -->
+        <Canvas Name="MapCanvas" Background="rgb(150, 150, 150)" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" />
+
+        <!-- Selection Bar -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="rgb(100, 100, 100)">
+            <TextBlock Name="MapTypeText" Text="Current Map: Geographical" FontWeight="Bold" Margin="10"/>
+            <Separator Margin="10" Background="rgb(150, 150, 150)" Height="3"/>
+        </StackPanel>
+
+        <!-- Geographical Menu -->
+        <views:GeographicalMenu x:Name="GeographicalMenu" Grid.Row="2" Grid.Column="1" IsVisible="False"/>
+
+        <!-- Political Menu -->
+        <views:PoliticalMenu x:Name="PoliticalMenu" Grid.Row="2" Grid.Column="1" IsVisible="False"/>
+    </Grid>
+</Window>
