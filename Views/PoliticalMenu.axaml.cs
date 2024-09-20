@@ -13,9 +13,14 @@ namespace MapCreator.Views
         public PoliticalMenu()
         {
             InitializeComponent();
-            LoadPanelData<Religions>();
-            LoadPanelData<Cultures>();
-            LoadListBoxData<Keywords>();
+        }
+
+        // MainWindow Initializes PoliticalMenu to ensure correct timing with asynchronous initialization.
+        public async Task InitializeAsync()
+        {
+            await LoadPanelDataAsync<Religions>();
+            await LoadPanelDataAsync<Cultures>();
+            await LoadListBoxDataAsync<Keywords>();
         }
 
         private void OnCreateNewRegionClick(object? sender, RoutedEventArgs e)
@@ -32,13 +37,13 @@ namespace MapCreator.Views
             // Proceed with region creation logic
         }
 
-        private async void LoadPanelData<T>() where T : BaseEntity
+        private async Task LoadPanelDataAsync<T>() where T : BaseEntity
         {
             var typeName = typeof(T).Name;
             var dataList = await LoadDataFromFileAsync<T>(typeName);
             var panel = this.FindControl<StackPanel>(typeName);
             if (panel == null) return;
-          
+
             foreach (var data in dataList)
             {
                 var textBlock = new TextBlock
@@ -66,7 +71,7 @@ namespace MapCreator.Views
             }
         }
 
-        private async void LoadListBoxData<T>() where T : BaseEntity
+        private async Task LoadListBoxDataAsync<T>() where T : BaseEntity
         {
             var typeName = typeof(T).Name;
             var keywords = await LoadDataFromFileAsync<T>(typeName);
@@ -89,10 +94,10 @@ namespace MapCreator.Views
         private static async Task<List<T>> LoadDataFromFileAsync<T>(string type) where T : BaseEntity
         {
             var filePath = $"Resources/{type}.json";
-            if (!File.Exists(filePath)) return [];
+            if (!File.Exists(filePath)) return new List<T>();
 
             var json = await File.ReadAllTextAsync(filePath);
-            return JsonConvert.DeserializeObject<List<T>>(json) ?? [];
+            return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
         }
     }
 }

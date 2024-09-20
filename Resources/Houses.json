@@ -1,0 +1,17 @@
+[
+  { "Name": "aberffraw", "Description": "House of Aberffraw", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "capet", "Description": "Maison Capétienne", "Religion": "latin", "Culture": "french" },
+  { "Name": "dinefwr", "Description": "House of Dinefwr", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "dunkeld", "Description": "Dùn Chailleann", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "estridsen", "Description": "Estridsen", "Religion": "latin", "Culture": "norse" },
+  { "Name": "flanders", "Description": "Baudouinides", "Religion": "latin", "Culture": "flemish" },
+  { "Name": "galloway", "Description": "Gall-Ghàidhealaibh", "Religion": "latin", "Culture": "norse" },
+  { "Name": "gwent", "Description": "House of Gwent", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "hardrada", "Description": "Hardrådeætta", "Religion": "latin", "Culture": "norse" },
+  { "Name": "moray", "Description": "Clann Ruaidrí", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "norman", "Description": "Maison de Nouormandie", "Religion": "latin", "Culture": "flemish" },
+  { "Name": "obrien", "Description": "Uí Bhriain", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "rennes", "Description": "House of Kerne", "Religion": "latin", "Culture": "celtic" },
+  { "Name": "stenkil", "Description": "Steinkelsson", "Religion": "latin", "Culture": "norse" },
+  { "Name": "strathclyde", "Description": "Ystrad Clud", "Religion": "latin", "Culture": "celtic" }
+]

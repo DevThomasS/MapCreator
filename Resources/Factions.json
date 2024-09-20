@@ -1,0 +1,17 @@
+[
+  { "Name": "brittany", "Description": "Duchy of Brittany", "Ruling_House": "rennes", "Vassals": "", "Suzerain": "france" },
+  { "Name": "denmark", "Description": "Kingdom of Denmark", "Ruling_House": "estridsen", "Vassals": "", "Suzerain": "" },
+  { "Name": "england", "Description": "Kingdom of England", "Ruling_House": "norman", "Vassals": "normandy", "Suzerain": "" },
+  { "Name": "finland", "Description": "Finnic Tribes", "Ruling_House": "", "Vassals": "", "Suzerain": "" },
+  { "Name": "flanders", "Description": "County of Flanders", "Ruling_House": "flanders", "Vassals": "", "Suzerain": "" },
+  { "Name": "france", "Description": "Kingdom of France", "Ruling_House": "capet", "Vassals": "brittany", "Suzerain": "" },
+  { "Name": "ireland", "Description": "Kingdom of Ireland", "Ruling_House": "obrien", "Vassals": "", "Suzerain": "" },
+  { "Name": "moray", "Description": "Earldom of Moray", "Ruling_House": "moray", "Vassals": "", "Suzerain": "scotland" },
+  { "Name": "normandy", "Description": "Duchy of Normandy", "Ruling_House": "norman", "Vassals": "", "Suzerain": "england" },
+  { "Name": "norway", "Description": "Kingdom of Norway", "Ruling_House": "hardrada", "Vassals": "", "Suzerain": "" },
+  { "Name": "perm", "Description": "Permyak Tribes", "Ruling_House": "", "Vassals": "", "Suzerain": "" },
+  { "Name": "saami", "Description": "Saami Tribes", "Ruling_House": "", "Vassals": "", "Suzerain": "" },
+  { "Name": "scotland", "Description": "Kingdom of Scotland", "Ruling_House": "dunkeld", "Vassals": "moray", "Suzerain": "" },
+  { "Name": "sweden", "Description": "Kingdom of Sweden", "Ruling_House": "stenkil", "Vassals": "", "Suzerain": "" },
+  { "Name": "wales", "Description": "Kingdom of Wales", "Ruling_House": "aberffraw", "Vassals": "", "Suzerain": "" }
+]

@@ -1,5 +1,8 @@
 [
-  { "Name": "briton", "Description": "Briton" },
-  { "Name": "angloSaxon", "Description": "Anglo-Saxon" },
-  { "Name": "norse", "Description": "Norse" }
+  { "Name": "anglosaxon", "Description": "Anglo-Saxon" },
+  { "Name": "celtic", "Description": "Celtic" },
+  { "Name": "flemish", "Description": "Flemish" },
+  { "Name": "french", "Description": "French" },
+  { "Name": "norse", "Description": "Norse" },
+  { "Name": "uralic", "Description": "Uralic" }
 ]
